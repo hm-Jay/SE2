@@ -1,12 +1,16 @@
-public class SmartLampe implements SmartDevice{
+public class SmartHeizung implements SmartDevice {
     private String name;
     private boolean eingeschaltet;
-    private int dimmLevel;
+    private int temperatur;
 
-    public SmartLampe(String name) {
+    public SmartHeizung(String name) {
         this.name = name;
         this.eingeschaltet = false;
-        this.dimmLevel = 100;
+        this.temperatur = 20; // Standardtemperatur
+    }
+
+    public void temperaturSetzen(int grad) {
+        this.temperatur = grad;
     }
 
     @Override
@@ -27,12 +31,12 @@ public class SmartLampe implements SmartDevice{
     @Override
     public void reset() {
         eingeschaltet = false;
-        dimmLevel = 100;
+        temperatur = 20;
     }
 
     @Override
     public String getStatus() {
-        return "SmartLampe '" + name + "' ist " + (eingeschaltet ? "eingeschaltet" : "ausgeschaltet") +
-                ", Dimm-Level: " + dimmLevel + "%";
+        return "SmartHeizung '" + name + "' ist " + (eingeschaltet ? "eingeschaltet" : "ausgeschaltet") +
+                ", Temperatur: " + temperatur + "°C";
     }
 }
