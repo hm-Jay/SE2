@@ -35,12 +35,9 @@ import java.util.Set;
 
         public void aufsSchrei() {
             for (Tier tier : tiere) {
-                System.out.println(tier.aussprache());
-            }
-            System.out.println("Tier List version");
-            for (Tier tier : tiere2) {
-                System.out.println(tier.aussprache());
+                WavPlayer.playWavRes(tier.getSoundPfad());
             }
         }
+
     }
 

@@ -25,4 +25,9 @@ public class Giraffe extends Tier {
     public String toString() {
         return super.toString() + "\nSchwanzlaenge: " + schwanzlaenge;
     }
+    @Override
+    public String getSoundPfad() {
+        return "/resources/CamelSound.wav";
+    }
+
 }

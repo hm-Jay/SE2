@@ -27,4 +27,9 @@ public class Loewe extends Tier {
     public int getRudelgroeße() {
         return rudelgroeße;
     }
+    @Override
+    public String getSoundPfad() {
+        return "/resources/Lion.wav";
+    }
+
 }

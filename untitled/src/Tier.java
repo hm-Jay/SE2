@@ -25,7 +25,10 @@ public abstract class Tier {
     public OffsetDateTime getGeburtsdatum() {
         return geburtsdatum;
     }
-    
+
+    public abstract String getSoundPfad();
+
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
