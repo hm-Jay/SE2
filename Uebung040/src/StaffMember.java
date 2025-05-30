@@ -15,5 +15,11 @@ public class StaffMember extends HMResource{
     public String toString() {
         return "StaffMember: " + getTitel() + " (" + getId() + "), Rolle: " + role;
     }
-
+    @Override
+    public boolean matchesSearch(String searchFor) {
+        searchFor = searchFor.toLowerCase();
+        return getId().toLowerCase().contains(searchFor) ||
+                getTitel().toLowerCase().contains(searchFor) ||
+                role.toLowerCase().contains(searchFor);
+    }
 }

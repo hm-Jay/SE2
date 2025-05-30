@@ -24,4 +24,20 @@ public class Computer extends HMResource {
         return super.toString() + "\nOperating System: " + operatingSystem +
                 "\nInstalled Software: " + String.join(", ", installedSoftware);
     }
+    @Override
+    public boolean matchesSearch(String searchFor) {
+        searchFor = searchFor.toLowerCase();
+        if (getId().toLowerCase().contains(searchFor) ||
+                getTitel().toLowerCase().contains(searchFor) ||
+                operatingSystem.toLowerCase().contains(searchFor)) {
+            return true;
+        }
+        for (String software : installedSoftware) {
+            if (software.toLowerCase().contains(searchFor)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

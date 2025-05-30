@@ -13,4 +13,12 @@ public class Book extends HMResource {
     public String toString() {
         return super.toString() + "\nAuthor: " + author;
     }
+    @Override
+    public boolean matchesSearch(String searchFor) {
+        searchFor = searchFor.toLowerCase();
+        return getId().toLowerCase().contains(searchFor) ||
+                getTitel().toLowerCase().contains(searchFor) ||
+                author.toLowerCase().contains(searchFor);
+    }
+
 }

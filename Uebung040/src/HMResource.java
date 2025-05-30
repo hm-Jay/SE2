@@ -22,4 +22,6 @@ public abstract class HMResource {
     public String toString() {
         return id + ": " + titel;
     }
+
+    public abstract boolean matchesSearch(String searchFor);
 }
