@@ -42,5 +42,6 @@ public class TestResManager {
         // Ausgabe nach Entfernen
         System.out.println("\n=== Ressourcen nach Entfernen ===");
         rm.printHMResources();
+        rm.schreibeÜbersichtInDatei("TestDatei");
     }
 }

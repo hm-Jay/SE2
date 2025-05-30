@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
 
 public class ResourceManagement {
     private List<HMResource> hmResources;
@@ -60,5 +64,25 @@ public class ResourceManagement {
     }
     public HMResource[] getAllResources() {
         return hmResources.toArray(new HMResource[0]);
+    }
+    public void schreibeÜbersichtInDatei(String dateiname) {
+        // Baue den Inhalt als String auf
+        StringBuilder contentBuilder = new StringBuilder();
+
+        for (HMResource resource : hmResources) {
+            contentBuilder.append(resource.toString());
+            contentBuilder.append(System.lineSeparator()); // neue Zeile
+            contentBuilder.append(System.lineSeparator());
+        }
+
+        // Schreibe den Inhalt in die Datei
+        try {
+            Path path = Path.of(dateiname);
+            Files.writeString(path, contentBuilder.toString());
+            System.out.println("Datei erfolgreich geschrieben: " + dateiname);
+        } catch (IOException e) {
+            System.err.println("Fehler beim Schreiben der Datei:");
+            e.printStackTrace();
+        }
     }
 }
